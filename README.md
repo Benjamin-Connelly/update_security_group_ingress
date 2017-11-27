@@ -25,7 +25,7 @@ Examples
 Say something about Crontab here
 
 ```
-Give the cron example her
+Give the cron example here
 ```
 ## TODO
 
