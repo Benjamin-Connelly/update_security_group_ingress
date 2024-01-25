@@ -1,5 +1,7 @@
 #!/bin/bash
 
+description="Your Description Here"
+
 export oldip=$(cat old.ip)
 export cidr=$(cat cidr.ip)
 export groups=$(cat groups.list)
@@ -12,6 +14,6 @@ awk '{ print $0 "/32" }' < my.ip > cidr.ip
 
 aws ec2 authorize-security-group-ingress --group-id $groups \
     --profile $1 \
-    --ip-permissions '[{"IpProtocol": "tcp", "FromPort": '$ports', "ToPort": '$ports', "IpRanges": [{"CidrIp": "'$cidr'", "Description": "nClouds Benjamin"}]}]'
+    --ip-permissions '[{"IpProtocol": "tcp", "FromPort": '$ports', "ToPort": '$ports', "IpRanges": [{"CidrIp": "'$cidr'", "Description": "$desription"}]}]'
 
 cat cidr.ip > old.ip
